@@ -15,9 +15,10 @@ The code is written in [R](https://www.r-project.org/), Matlab, and RATS.
 3. Follow instructions in the [master code](Code/00_master_run.R).
 
 ### Replication instructions for Unit Root Tests (Table A4)
-1. Download files 20230221 Unit Root Results.prg, uradf.src, mackinnoncv.src, and Cointegration_Data (Rats).xlsx. 
+1. Download and unzip 'Unit Root Tests'
 2. Run 20230221 Unit Root Results.prg in Rats.
 
 ### Replication instructions for Cointegration Analysis (Tables 3 and A5)
-1. Download files in folder Cointegration Analysis.
-2. Run driver.m in Matlab.
+1. Download and unzip 'Cointegration Analysis'.
+2. Set the Current Folder in Matlab to 'Cointegration Analysis'. Add folders 'toolbox' and 'Sephton and Mann' to path.
+3. Run driver.m in Matlab.
