@@ -24,6 +24,7 @@ The code is written in [R](https://www.r-project.org/), Matlab, and RATS.
 3. Run driver.m in Matlab.
 
 ### Replication instructions for VAR models (Figures 3, A1, A2, and Tables 2, A1, A2, A3)
-1. Download files VARs.zip.
-2. Run 'er_paper_VARexercise.R' in R. The code generates the plots and saves it in a designated folder path, the folder should be adjusted (each plot is still prompted by R and can be saved manually).
+0. You can Download VARs.zip and run 'er_paper_VARexercise.R' in a local folder. Alternatively, you can use the files from `Code` and `Data` as explained below.
+1. From `Data` download 'arg_cer.csv' and 'cer.csv'.
+2. From `Code` download and run 'er_paper_VARexercise.R' in R. The code generates the plots and saves it in a designated folder path, the folder should be adjusted (each plot is still prompted by R and can be saved manually).
 3. For tables 2 and A2, 'er_paper_VARexercise.R' shold be run until line 558. Then in line 563 the model should be changed for that of each country (names are shown in the file and follow the pattern var'ABC', with ABC being the ISO3 abreviation of each country). Then run the rest of the code to generate the results used for table 2, A2.
