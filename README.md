@@ -20,8 +20,9 @@ The code is written in [R](https://www.r-project.org/), Matlab, and RATS.
 
 ### Replication instructions for Cointegration Analysis (Tables 3 and A5)
 1. Download and unzip 'Cointegration Analysis'.
-2. Set the Current Folder in Matlab to 'Cointegration Analysis'. Add folders 'toolbox' and 'Sephton and Mann' to path.
-3. Run driver.m in Matlab.
+2. Install the Econometrics Toolbox for Matlab.
+3. Set the Current Folder in Matlab to 'Cointegration Analysis'. Add folder 'Sephton and Mann' to path.
+4. Run driver.m in Matlab.
 
 ### Replication instructions for VAR models (Figures 3, A1, A2, and Tables 2, A1, A2, A3)
 0. You can Download VARs.zip and run 'er_paper_VARexercise.R' in a local folder. Alternatively, you can use the files from `Code` and `Data` as explained below.
