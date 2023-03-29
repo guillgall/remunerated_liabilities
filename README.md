@@ -2,17 +2,17 @@ This repository contains the code and data of the paper "[Exchange Rate Dynamics
 
 ## Code organization
 
-There are two main folders `Code` and `Data`. The code inside `Code` transforms data from `Data/Input` into `Data/Output`.
+There are two main folders `Code` and `Data`. Relevant data, plots and tables are stored in `Data`.
 
 ## Software requirements
 The code is written in [R](https://www.r-project.org/), Matlab, and RATS.
 
 ## Replication instructions for VAR models
 
-### Data, variable constructiona and tables/plots
-1. Download the [IMF-IFS](https://data.imf.org/?sk=4c514d48-b6ba-49ed-8ab9-52b0c1a0179b) full dataset and the relevant variables for Argentina available in [UCEMA-CEA](https://ucema.edu.ar/cea).
-2. Save this data in your desktop in  `Desktop/Data` subfolder. 
-3. Follow instructions in the [master code](Code/00_master_run.R).
+### Data, variable construction and tables/plots
+1. We have downloaded the [IMF-IFS](https://data.imf.org/?sk=4c514d48-b6ba-49ed-8ab9-52b0c1a0179b) full dataset and the relevant variables for Argentina available in [UCEMA-CEA](https://ucema.edu.ar/cea).
+2. We provide codes to clean such databases and create variables in subfolders of `Code`. The two .csv files in `Data` contain the output of such cleansing. 
+3. Run the plot scripts in the `Code` subfolder to generate Figures 1, 2 and A3; and Table 1 and A6. 
 
 ### Replication instructions for Unit Root Tests (Table A4)
 1. Download and unzip 'Unit Root Tests'
