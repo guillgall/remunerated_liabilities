@@ -2,7 +2,7 @@ This repository contains the code and data of the paper "[Exchange Rate Dynamics
 
 ## Code organization
 
-There are two main folders `Code` and `Data`. Relevant data, plots and tables are stored in `Data`.
+There are two main folders `Code` and `Data`. 
 
 ## Software requirements
 The code is written in [R](https://www.r-project.org/), Matlab, and RATS.
