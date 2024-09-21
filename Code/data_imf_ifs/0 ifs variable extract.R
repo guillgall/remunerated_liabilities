@@ -1,7 +1,7 @@
 #set directory
-setwd("~/Desktop")
+setwd("~/Desktop/Data/IMF IFS")
 
-ifs <- read.csv("IFS_10-23-2020 15-52-28-92_timeSeries.csv", stringsAsFactors=FALSE)
+ifs <- read.csv("IFS_06-10-2024 16-18-13-41_timeSeries.csv", stringsAsFactors=FALSE)
 
 #see what are relevant variables
 var_names <- as.data.frame(unique(ifs$Indicator.Name))
@@ -10,6 +10,22 @@ var_names <- as.data.frame(var_names[-grep("Euros", var_names[,1]),])
 var_names <- as.data.frame(var_names[-grep("US Dollars", var_names[,1]),])
 var_names <- as.data.frame(var_names[grep("Central Bank Survey", var_names[,1]),])
 write.csv(var_names, file = "indicator_name.csv")
+
+#see what are relevant variables denominated in dollars
+var_names <- as.data.frame(unique(ifs$Indicator.Name))
+var_names <- as.data.frame(var_names[grep("Monetary", var_names[,1]),])
+var_names <- as.data.frame(var_names[grep("US Dollars", var_names[,1]),])
+var_names <- as.data.frame(var_names[grep("Central Bank Survey", var_names[,1]),])
+write.csv(var_names, file = "indicator_name_dollars.csv")
+
+#see names other variables
+var_names <- as.data.frame(unique(ifs$Indicator.Name))
+var_names <- as.data.frame(var_names[grep("Gross Domestic", var_names[,1]),])
+
+#check
+uru <- subset(ifs, Country.Name=="Uruguay")
+uru <- uru[grep("Gross Domestic", uru$Indicator.Name),]
+
 
 ##VARIABLES IN FS 2020 paper
 #1: Monetary, Central Bank Survey, Net Foreign Assets, Claims on Non-residents, Domestic Currency
@@ -29,7 +45,7 @@ write.csv(var_names, file = "indicator_name.csv")
 #extract relevant variables: balance sheet 
 bc <- ifs[c(grep("Monetary, Central Bank Survey, Net Foreign Assets, Claims on Non-residents, Domestic Currency", ifs$Indicator.Name),
            grep("Monetary, Central Bank Survey, Claims on Other Depository Corporations, Domestic Currency", ifs$Indicator.Name),
-           grep("Monetary, Central Bank Survey, Net Claims on Central Government, Claims on Central Government, Domestic Currency", ifs$Indicator.Name),
+           grep("Monetary, Central Bank Survey, Net Claims on Central Government, Domestic Currency", ifs$Indicator.Name),
            grep("Monetary, Central Bank Survey, Net Foreign Assets, Liabilities To Non-residents, Domestic Currency", ifs$Indicator.Name),
            grep("Monetary, Central Bank Survey, Monetary Base, Domestic Currency", ifs$Indicator.Name),
            grep("Monetary, Central Bank Survey, Other Liabilities To Other Depository Corporations, Domestic Currency", ifs$Indicator.Name),
@@ -44,8 +60,9 @@ bc <- ifs[c(grep("Monetary, Central Bank Survey, Net Foreign Assets, Claims on N
            grep("Exchange Rates, Domestic Currency per U.S. Dollar, Period Average, Rate", ifs$Indicator.Name),
            grep("Monetary, Broad Money, Domestic Currency", ifs$Indicator.Name),
            grep("Financial, Interest Rates, Deposit, Percent per annum", ifs$Indicator.Name),
-           grep("Gross Domestic Product, Expenditure Approach, Nominal, Domestic Currency", ifs$Indicator.Name),
-           grep("Gross Domestic Product, Expenditure Approach, Deflator, Index", ifs$Indicator.Name))
+           grep("Gross Domestic Product, Nominal, Unadjusted, Domestic Currency", ifs$Indicator.Name),
+           grep("Monetary, Central Bank Survey, Net Foreign Assets, Liabilities To Non-residents, Other Foreign Liabilities, International Liquidity, Domestic Currency", ifs$Indicator.Name),
+          grep("Monetary, Central Bank Survey, Net Foreign Assets, Liabilities To Non-residents, Other Foreign Liabilities, International Liquidity, US Dollars", ifs$Indicator.Name))
          ,]
 
 variables <- unique(bc$Indicator.Name)
@@ -66,46 +83,31 @@ ifsl_monb <- ifsl_mon[complete.cases(ifsl_mon[ ,14]),]
 
 write.csv(ifsl_monb, file = "ifs_bc_monthly.csv")
 
+
 #QUARTERLY DATA (INCLUDES GDP)
 
-ifsl_qua <- bc[,c(1:5, grep("Q", colnames(bc)))]
-
-
-#keep only data > 2002
-
-ifsl_qua <- ifsl_qua[,-c(6:grep("^X2001Q4$", colnames(ifsl_qua)))]                 
-
-#delete rows with NA  
-ifsl_qua[ifsl_qua==""]<-NA
-
-ifsl_quab <- ifsl_qua[complete.cases(ifsl_qua[ ,6]),]
-
-write.csv(ifsl_quab, file = "ifs_bc_quarterly.csv")
-
-#ANNUAL DATA 
-
-toremove1 <-grep("M", colnames(bc))
-toremove2 <-grep("Q", colnames(bc))
-
-ifsl_an <- bc[,-c(toremove1, toremove2)]
+ifsl_q <- bc[,c(1:5,grep("Q", colnames(bc)))]
 
 #keep only data > 2002
 
-ifsl_an <- ifsl_an[,-c(6:grep("^X2001$", colnames(ifsl_an)))]                 
+ifsl_q <- ifsl_q[,-c(6:grep("^X2001Q4$", colnames(ifsl_q)))]                 
 
 #delete rows with NA  
-ifsl_an[ifsl_an==""] <-NA
-ifsl_anb <- ifsl_an[complete.cases(ifsl_an[ ,6]),]
+ifsl_q[ifsl_q==""] <-NA
+ifsl_qb <- ifsl_q[complete.cases(ifsl_q[ ,80]),]
 
-write.csv(ifsl_anb, file = "ifs_bc_annual.csv")
+write.csv(ifsl_qb, file = "ifs_bc_quarterly.csv")
 
+
+#check
+uru <- subset(ifsl_qb, Country.Name=="Uruguay")
+uru <- uru[grep("Gross Domestic", uru$Indicator.Name),]
 
 #
 countries <- unique(ifsl_monb$Country.Name)
 
 countries
 
+#write.csv(bc, file = "ifs_bc.csv")
 
 
-
-write.csv(bc, file = "ifs_bc.csv")

@@ -1,4 +1,4 @@
-This repository contains the code and data of the paper "[Exchange Rate Dynamics and the Central Bank’s Balance Sheet](https://guillgall.github.io/files/conversion_er.pdf)" by Guillermo Gallacher, Camilo Granados and Janelle Mann.
+This repository contains the code and data of the paper "[Exchange Rate Dynamics and the Central Bank’s Balance Sheet](https://guillgall.github.io/files/conversion_er.pdf)" by Guillermo Gallacher, Camilo Granados and Janelle Mann (Journal of International Money and Finance, October 2024). Published version [here](https://www.sciencedirect.com/science/article/abs/pii/S0261560624001438)
 
 ## Code organization
 
@@ -10,8 +10,8 @@ The code is written in [R](https://www.r-project.org/), Matlab, and RATS.
 ## Replication instructions for VAR models
 
 ### Data, variable construction and tables/plots
-1. We have downloaded the [IMF-IFS](https://data.imf.org/?sk=4c514d48-b6ba-49ed-8ab9-52b0c1a0179b) full dataset and the relevant variables for Argentina available in [UCEMA-CEA](https://ucema.edu.ar/cea).
-2. We provide codes to clean such databases and create variables in subfolders of `Code`. The two .csv files in `Data` contain the output of such cleansing. 
+1. You need to download the [IMF-IFS](https://data.imf.org/?sk=4c514d48-b6ba-49ed-8ab9-52b0c1a0179b) full dataset (raw data not included here due to size), as well as Argentina's informal exchange rate from [UCEMA-CEA](https://ucema.edu.ar/cea) (or use the raw data included in Data/Input folder). 
+2. Our scripts clean and merge such databases, and then create relevant variables in subfolders of `Code`. The output of such scripts is the main data used in the paper and is available in [here ](Data/Output/cer_complete.csv).
 3. Run the plot scripts in the `Code` subfolder to generate Figures 1, 2 and A3; and Table 1 and A6. 
 
 ### Replication instructions for Unit Root Tests (Table A4)
