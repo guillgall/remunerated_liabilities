@@ -11,8 +11,8 @@ The code is written in [R](https://www.r-project.org/), Matlab, and RATS.
 
 ### Data, variable construction and tables/plots
 1. You need to download the [IMF-IFS](https://data.imf.org/?sk=4c514d48-b6ba-49ed-8ab9-52b0c1a0179b) full dataset (raw data not included here due to size), as well as Argentina's informal exchange rate from [UCEMA-CEA](https://ucema.edu.ar/cea) (or use the raw data included in Data/Input folder). 
-2. Our scripts clean and merge such databases, and then create relevant variables in subfolders of `Code`. The output of such scripts is the main data used in the paper and is available in [here ](Data/Output/cer_complete.csv).
-3. Run the plot scripts in the `Code` subfolder to generate Figures 1, 2 and A3; and Table 1 and A6. 
+2. Our scripts clean and merge such databases, and then create relevant variables. The output of such scripts is the main data used in the paper and is available in [here ](Data/Output/cer_complete.csv).
+3. Run the plot scripts in the `Code/data_imf_ifs` subfolder to generate Figures 1, 2 and A3; and Table 1 and A6. 
 
 ### Replication instructions for Unit Root Tests (Table A4)
 1. Download and unzip 'Unit Root Tests'
