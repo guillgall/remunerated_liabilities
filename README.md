@@ -25,7 +25,5 @@ The code is written in [R](https://www.r-project.org/), Matlab, and RATS.
 4. Run driver.m in Matlab.
 
 ### Replication instructions for VAR models (Figures 3, A1, A2, and Tables 2, A1, A2, A3)
-0. You can Download VARs.zip and run 'er_paper_VARexercise.R' in a local folder. Alternatively, you can use the files from `Code` and `Data` as explained below.
-1. From `Data` download 'arg_cer.csv' and 'cer.csv'.
-2. From `Code` download and run 'er_paper_VARexercise.R' in R. The code generates the plots and saves it in a designated folder path, the folder should be adjusted (each plot is still prompted by R and can be saved manually).
-3. For tables 2 and A2, 'er_paper_VARexercise.R' shold be run until line 558. Then in line 563 the model should be changed for that of each country (names are shown in the file and follow the pattern var'ABC', with ABC being the ISO3 abreviation of each country). Then run the rest of the code to generate the results used for table 2, A2.
+1. From `VARs` in `Code` download and run `cer_VARs_replic.R` in R. The code generates the following plots: Figure 3, Figure A2. It also generates the tables A4 and A6. Additionally, it generates objects named `varCOUNTRYCODE` containing all the models' results, including the cointegration results used for generating Table 3 and Table A5. To query for a particular country call the object for the country of interest by changing the COUNTRYCODE part of the object with the ISO3 corresponding code (e.g., `varCOL` for the VAR with Colombian data).
+2. For tables A3, A4: run `cer_VARs_withExternalLiabilities_replic.R`. The plots will be saved in the local working folder. The file also generates other set of results for these additional models that are not shown on the paper.
